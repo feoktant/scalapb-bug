@@ -2,12 +2,12 @@ name := "mysqlx4s"
 
 version := "0.1"
 
-scalaVersion := "2.13.4"
+scalaVersion := "2.13.16"
 
-idePackagePrefix := Some("io.feoktant.mysqlx")
+Compile / idePackagePrefix := Some("io.feoktant.mysqlx")
 
-PB.targets in Compile := Seq(
-  scalapb.gen() -> (sourceManaged in Compile).value / "scalapb"
+Compile / PB.targets := Seq(
+  scalapb.gen() -> (Compile / sourceManaged).value / "scalapb"
 )
 
 // (optional) If you need scalapb/scalapb.proto or anything from
